@@ -1,0 +1,6 @@
+git add 
+git commit -m 'comments'
+git rm <file>
+git log
+git reflog   -- show the operations you do
+git reset 

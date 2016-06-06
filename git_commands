@@ -4,3 +4,5 @@ git rm <file>
 git log
 git reflog   -- show the operations you do
 git reset 
+git status
+

@@ -1,0 +1,54 @@
+#####类
+编译过后的class结构：
+
+* 一部分描述修饰符，名称，超类，接口以及其上的annotation
+* 每个field为一部分，每部分里面包含属性的修饰符，名称，类型，annotation
+* 每个方法为一部分，包含构造函数，每部分包含了修饰符，名称，返回值，参数类型以及annotation，也包含方法的实现代码
+
+#####源文件与类文件的不同#####
+*  一个类文件只描述一个class，源文件可以包含多个，当然，源文件中的主类内部类在编译后的类文件中都会有链接指向对方
+*  类文件中不包含注释
+*  类文件中没有package和import，所有的类型名称都是全路径
+*  类文件中包含了一个常量池，是一个包含所有的数字，字符串和类型常量的数组，并且只被定义一次
+
+#####overall structure of a compiled class
+
+|Modifier,name,super class,interfaces|
+| Constant pool:numeric,string,type constant |
+| source file name |
+| Enclosing class reference|
+| Annotation\* |
+| Attribute\* |
+| Inner Class|Name |
+|Field*|Modifiers,name,type|
+||Annotation*|
+||Attribute*|
+|Method*|Modifiers,name,return and parameter types|
+||Annotation*|
+||Attribute*|
+||Compiled Code|
+
+#####内部名称
+* 类型描述
+
+｜java tyle | Type descriptor|
+|boolean | Z|
+|char | C|
+|byte|B|
+|short|S|
+|int|I|
+|float|F|
+|long|J|
+|double|D|
+|Object|Ljava/lang/Object;|
+|int[]|[I|
+
+在类中类型的表示更加简洁，而且源文件中的点转换为了斜杠
+*为啥引用类型用L而不是用R reference*
+* 方法描述符
+ 方法描述符其实就是参数类型和返回类型的类型描述符的集合在一个字符串中，其中并没有方法名称
+ V for void
+  void m(int i,float f) (IF)V
+  int sss(Object o) (Ljava/lang/Object;)I
+  void dd()  ()V
+

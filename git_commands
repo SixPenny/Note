@@ -5,4 +5,7 @@ git log
 git reflog   -- show the operations you do
 git reset 
 git status
+git checkout -- file   //丢弃掉工作区内的修改
+git reset HEAD file   //文件回退到某个版本
+
 

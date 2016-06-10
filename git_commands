@@ -15,7 +15,10 @@ git checkout -b branch_name //创建并检出branch_name分支,相当于
   git branch branch_name
   git checkout branch_name 
 git branch     //查看所有的分支,当前分支有＊标示
-git checkout  master //切换到master分支
+git checkout master //切换到master分支
+git merge branch_name //合并branch_name到当前分支上
+git branch -d branch_name // 删除分支
+
 
 
 

@@ -3,9 +3,11 @@ git commit -m 'comments'
 git rm <file>
 git log
 git reflog   -- show the operations you do
-git reset 
+git reset --hard HEAD^   //^表示会退到上一个版本
 git status
 git checkout -- file   //丢弃掉工作区内的修改
 git reset HEAD file   //文件回退到某个版本
+git clone remote_addr  //从远程库克隆一份到本地
+
 
 

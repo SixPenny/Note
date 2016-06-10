@@ -19,6 +19,7 @@ git checkout master //切换到master分支
 git merge branch_name //合并branch_name到当前分支上
 git branch -d branch_name // 删除分支
 
+git log --graph --pretty=oneline //查看分支合并图
 
 
 

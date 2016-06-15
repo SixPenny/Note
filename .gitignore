@@ -1,0 +1,4 @@
+#ignore idea related files
+*.[iml]
+#ignore java classed
+*.[class]

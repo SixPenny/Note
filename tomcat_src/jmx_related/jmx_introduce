@@ -1,0 +1,64 @@
+一。监控可以做的事
+
+1，监测平台和硬件的健康性
+
+2，在应用层面上配置资源  (譬如数据库过载，可以手动调节连接数)
+
+3，收集应用统计数据
+
+4，调试选项，更改日志级别等
+
+5，监视服务器的性能
+
+实现方案：JMX
+
+二，基本jmx条目
+
+1，可管理的资源
+
+    包括任意的应用，设备或其他java可以调用包装的实体
+
+2.MBean
+
+Managed bean：满足jmx规范，具有特定名称和继承规范的java类
+
+jmx包含3种bean：标准，动态，模版
+
+MBean都驻扎在一个叫MBean Server的地方
+
+3.MBean Server
+
+管理一组MBean的java类，是jmx管理环境中的核心，使用注册的方式来查找Mbeans，
+
+并且对注册的MBean暴露管理接口，提供方法来查找MBean
+
+4.Jmx agent
+
+提供一系列服务来管理MBean的一个java处理机制，是MBean Server的容器
+
+agent可以有一组适配器和连接器来让远程不同的客户端使用自己，适配器可以映射协议，譬如http,snmp
+
+连接器可以把agent暴露出来让客户端通过rmi，jini连接
+
+5.协议适配器和连接器 Protocol adaptor and connector
+
+存在与agent中，通过协议或连接暴露agent
+
+6.管理应用 Management application
+
+通过接口连接agent，管理其中MBean的应用程序
+
+7通知 Notification
+
+Mbean和MBean Server包装的事件，报警，或一般通知
+
+8.设备 Instrumentation
+
+定义如何实现管理资源的规范
+
+三，jmx架构
+
+层   	描述
+分布服务层	包含管理应用与代理层通信的各种组件
+代理层	包含代理和MBean服务器
+设备层	包含代表可管理资源的MBean

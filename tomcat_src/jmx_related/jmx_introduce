@@ -138,3 +138,6 @@ IV.接口继承非MBean接口
 
  CopiedPrinter行为是由两个接口决定的，CopiedPrinterMBean继承了所有的方法
 
+
+
+

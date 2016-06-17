@@ -1,7 +1,11 @@
-package com.dylan.helloworld;
+package com.dylan.agent;
 
 
+import com.dylan.helloworld.HelloWorld;
+import com.dylan.helloworld.HelloWorldMBean;
+import com.dylan.propertyManage.PropertyManage;
 import com.sun.jdmk.comm.HtmlAdaptorServer;
+import com.sun.jdmk.comm.RmiConnectorServer;
 
 import javax.management.MBeanServer;
 import javax.management.MBeanServerFactory;
@@ -20,13 +24,23 @@ public class HelloAgent {
 
         try {
             ObjectName objectName = new ObjectName("HelloAgent:name=world");
-            ObjectName adaptorName = new ObjectName("HellopAgent:name=htmlAgent,port=8090");
-
             mbs.registerMBean(hello,objectName);
 
-            htmlAdaptorServer.setPort(9092);
+            ObjectName adaptorName = new ObjectName("HelloAgent:name=htmlAgent,port=8090");
+            htmlAdaptorServer.setPort(9093);
             mbs.registerMBean(htmlAdaptorServer,adaptorName);
 
+
+            ObjectName property = new ObjectName("HelloAgent:name=propertyManage");
+            PropertyManage propertyManage = new PropertyManage("/Users/dylanliu/Downloads/JMXAction/src/com/dylan/propertyManage/message.properties");
+            mbs.registerMBean(propertyManage,property);
+
+            RmiConnectorServer rmi = new RmiConnectorServer();
+            ObjectName rmiName = new ObjectName("HelloAgent:name=rmiServer");
+            mbs.registerMBean(rmi,rmiName);
+
+            rmi.setPort(8999);
+            rmi.start();
             htmlAdaptorServer.start();
         } catch (Exception e) {
             e.printStackTrace();

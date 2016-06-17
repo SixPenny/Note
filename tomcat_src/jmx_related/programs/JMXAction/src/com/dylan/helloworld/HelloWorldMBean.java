@@ -6,30 +6,18 @@ package com.dylan.helloworld;
 public interface HelloWorldMBean {
     /**
      * set the greeting sentence
-     * @param greeting
+     * @param helloVo
      */
-    public void setGreeting(String greeting);
+    public void setGreeting(HelloVo helloVo);
 
     /**
      * get the greeting sentence
      * @return
      */
-    public String getGreeting();
+    public HelloVo getGreeting();
 
     /**
      * print the greeting to who
      */
-    public String printGreeting();
-
-    /**
-     * set the greet to who
-     * @param greetingName
-     */
-    public void setGreetingName(String greetingName);
-
-    /**
-     * get greet person name
-     * @return
-     */
-    public String getGreetingName();
+    public HelloVo printGreeting();
 }

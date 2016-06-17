@@ -4,36 +4,28 @@ package com.dylan.helloworld;
  * Created by dylanliu on 16/6/15.
  */
 public class HelloWorld implements HelloWorldMBean {
-    private String greeting;
-    private String name;
 
+    private HelloVo helloVo;
     public HelloWorld(){
-        this.greeting = "Hello ";
-        this.name = " World";
-    }
-    @Override
-    public void setGreeting(String greeting) {
-        this.greeting = greeting;
+        HelloVo helloVo =  new HelloVo();
+        helloVo.setGreeting("hello");
+        helloVo.setName("world");
+        this.helloVo = helloVo;
     }
 
     @Override
-    public String getGreeting() {
-        return greeting;
+    public void setGreeting(HelloVo helloVo) {
+        this.helloVo = helloVo;
     }
 
     @Override
-    public String printGreeting() {
-        System.out.println(greeting + " " + name);
-        return greeting+" "+name;
+    public HelloVo getGreeting() {
+        return this.helloVo;
     }
 
     @Override
-    public void setGreetingName(String greetingName) {
-        this.name = greetingName;
-    }
-
-    @Override
-    public String getGreetingName() {
-        return this.name;
+    public HelloVo printGreeting() {
+        System.out.println(helloVo.getGreeting() + " " + helloVo.getName());
+        return helloVo;
     }
 }

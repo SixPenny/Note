@@ -1,0 +1,12 @@
+读英文版java并发编程实战笔记。
+
+以前看的是中文版的，今天把英文版的过一遍，把理论知识，相关实践再强化一下。
+
+1:何为thread-safe?
+	A  class  is  thread safe  if  it  behaves  correctly  when  accessed  from  multiple  threads,  regardless  of  the  scheduling  or  interleaving  of  the  execution  of  those  threads  by  the  runtime  environment,  and  with  no  additional  synchronization  or  other coordination on the part of the calling code. 
+
+	就是说无论怎么运行都正确的（正确性），如果一个单线程的程序运行的结果不正确，那也不能叫线程安全的。
+	无状态的对象是线程安全的
+2:race condition－The  possibility  of  incorrect  results  in the presence of unlucky timing
+ check-then-act（lazy initialization），read-modify-write（increment）
+原子操作：Operations  A  and  B  are  atomic  with  respect  to  each  other  if,  from  the  perspective  of  a  thread  executing  A,  when  another thread executes B, either all of B has executed or none of it has.

@@ -11,7 +11,7 @@ import org.junit.runners.Parameterized.Parameters;
 import junit.framework.Assert;
 
 @RunWith(value=Parameterized.class)
-public class CaculatorTestParameterize {
+public class CaculatorParameterizeTest {
 
   private double result;
   private double one;
@@ -24,7 +24,7 @@ public class CaculatorTestParameterize {
         {4d,3d,1d}
     });
   }
-  public CaculatorTestParameterize(double result,double one,double two){
+  public CaculatorParameterizeTest(double result,double one,double two){
     this.result = result;
     this.one = one;
     this.two = two;

@@ -19,15 +19,20 @@ public class DomainObjectTest {
     System.out.println(sb.toString());
   }
   
-  @Test
+  @Test(timeout=100)
   public void test2(){
     sb.append("222");
     System.out.println(sb.toString());
+    try{
+//      Thread.sleep(2000);
+    }catch(Exception e){
+      e.printStackTrace();
+    }
+    System.out.println("333");
   }
   
   @After
   public void destroy(){
     System.out.println(sb.toString());
-    throw new RuntimeException();
   }
 }

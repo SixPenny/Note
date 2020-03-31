@@ -1,0 +1,10 @@
+- extensibility
+- changability
+- testability
+- separation of responsibilities
+- reliability
+- reusability
+- portability
+- maintainability
+- understandability
+- stability
